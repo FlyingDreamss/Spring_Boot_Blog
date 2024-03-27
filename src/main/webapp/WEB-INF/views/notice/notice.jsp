@@ -5,6 +5,10 @@
 <head>
     <meta charset="UTF-8">
     <title>게시판 목록</title>
+
+    <div>
+        <button type="button" onclick="insertNoticeMove();">등록</button>
+    </div>
 </head>
 <style>
     table { border: 1px solid black; }
@@ -39,6 +43,11 @@
     // 상세화면 이동
     function detailMove(noticeId) {
         location.href = "notice/notice-detail/" + noticeId;
+    }
+
+    // 등록화면 이동
+    function insertNoticeMove() {
+        location.href = "notice/insert-view";
     }
 
 </script>
