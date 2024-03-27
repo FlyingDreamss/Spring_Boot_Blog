@@ -7,6 +7,7 @@ import lombok.ToString;
 @ToString
 public class NoticeResponse {
 
+    private int rankNo;
     private int noticeId;
     private String title;
     private String content;

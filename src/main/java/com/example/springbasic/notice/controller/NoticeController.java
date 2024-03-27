@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.List;
+
 @Controller
 @RequiredArgsConstructor
 public class NoticeController {
@@ -17,9 +19,10 @@ public class NoticeController {
 
     @RequestMapping(value = "/notice", method = RequestMethod.GET)
     public String selectNoticeList(Model model) {
-        NoticeResponse noticeResponse = noticeService.selectNoticeList();
+
+        List<NoticeResponse> noticeResponse = noticeService.selectNoticeList();
         System.out.println("noticeResponse ==> " + noticeResponse);
-        model.addAttribute("list", noticeResponse);
+        model.addAttribute("notices", noticeResponse);
 
         return "notice/notice";
     }

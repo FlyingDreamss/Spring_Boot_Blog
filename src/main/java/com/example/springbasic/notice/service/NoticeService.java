@@ -5,6 +5,8 @@ import com.example.springbasic.notice.mapper.NoticeMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class NoticeService {
@@ -12,7 +14,7 @@ public class NoticeService {
     private final NoticeMapper noticeMapper;
 
 
-    public NoticeResponse selectNoticeList() {
+    public List<NoticeResponse> selectNoticeList() {
         return noticeMapper.selectNoticeList();
     }
 

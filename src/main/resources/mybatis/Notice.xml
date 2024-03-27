@@ -5,12 +5,15 @@
     <!-- 게시글 목록 -->
     <select id="selectNoticeList" resultType="com.example.springbasic.notice.dto.response.NoticeResponse">
         select
-             notice_id
+             RANK() over (ORDER BY notice_id asc) as rankNo
+            ,notice_id
             ,title
             ,content
             ,create_id
             ,create_at
         from study.notice
+        group by notice_id
+        order by create_at asc
     </select>
 
 </mapper>
