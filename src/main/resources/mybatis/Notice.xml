@@ -16,4 +16,28 @@
         order by create_at asc
     </select>
 
+    <!-- 게시글 단건 조회 -->
+    <select id="selectOneNotice" parameterType="int"
+            resultType="com.example.springbasic.notice.dto.response.NoticeResponse">
+        select
+            notice_id
+             ,title
+             ,content
+             ,create_id
+             ,create_at
+        from study.notice
+        where 1=1
+          and notice_id = #{noticeId}
+    </select>
+
+    <!-- 게시판 수정 -->
+    <update id="updateDetail" parameterType="com.example.springbasic.notice.dto.request.NoticeRequest">
+        update study.notice
+        set
+            title = #{title}
+          ,content = #{content}
+          ,update_at = CURRENT_TIMESTAMP()
+        where 1=1
+          and notice_id = #{noticeId}
+    </update>
 </mapper>

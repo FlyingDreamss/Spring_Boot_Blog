@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>게시판 목록</title>
 </head>
 <style>
     table { border: 1px solid black; }
@@ -12,25 +12,33 @@
     td { border: 1px solid black; width: 5%; }
 </style>
 <body>
-    <h1>게시판 목록</h1>
+<h1>게시판 목록</h1>
 
-    <table border="1">
+<table border="1">
+    <tr>
+        <th>순번</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>등록일</th>
+    </tr>
+    <c:forEach var = "list" items = "${notices}">
         <tr>
-            <th>순번</th>
-            <th>제목</th>
-            <th>작성자</th>
-            <th>등록일</th>
+            <td>${list.rankNo}</td>
+            <td onclick="detailMove('${list.noticeId}');">${list.title}</td>
+            <td>${list.createId}</td>
+            <td>${list.createAt}</td>
         </tr>
-        <c:forEach var = "list" items = "${notices}">
-            <tr>
-                <td>${list.rankNo}</td>
-                <td>${list.title}</td>
-                <td>${list.createId}</td>
-                <td>${list.createAt}</td>
-            </tr>
-        </c:forEach>
+    </c:forEach>
 
-    </table>
+</table>
 
 </body>
 </html>
+<script>
+
+    // 상세화면 이동
+    function detailMove(noticeId) {
+        location.href = "notice/notice-detail/" + noticeId;
+    }
+
+</script>
