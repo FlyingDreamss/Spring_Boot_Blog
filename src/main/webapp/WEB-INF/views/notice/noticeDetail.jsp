@@ -33,12 +33,12 @@
 </html>
 <script>
     // 목록이동
-    function updateNotice() {
+    function noticeListMove() {
         location.href = "/notice";
     }
 
     // 수정
-    function noticeDetail() {
+    function updateNotice() {
         const reqData = {
             noticeId : '${notice.noticeId}',
             title : document.querySelector("#title").value,

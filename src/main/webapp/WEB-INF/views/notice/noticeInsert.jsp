@@ -57,4 +57,8 @@
             }
         });
     }
+
+    function noticeListMove() {
+        location.href = "/notice";
+    }
 </script>
